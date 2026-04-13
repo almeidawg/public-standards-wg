@@ -31,6 +31,7 @@ Objetivo:
 - `templates/`
 - `docs/`
 - `scripts/`
+- `examples/`
 
 ## Regra de extracao
 
@@ -41,3 +42,10 @@ Se um arquivo veio do workspace interno:
 3. remover referencias a clientes e operacao
 4. revisar se ainda faz sentido fora do contexto interno
 5. so depois mover para repo publico
+
+## Scripts incluidos
+
+- `scripts/check-imports.mjs`
+- `scripts/audit-consistency.mjs`
+
+Os scripts foram sanitizados para uso generico e sao validados em `examples/basic-app`.
