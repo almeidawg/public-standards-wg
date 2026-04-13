@@ -47,5 +47,14 @@ Se um arquivo veio do workspace interno:
 
 - `scripts/check-imports.mjs`
 - `scripts/audit-consistency.mjs`
+- `run-audit-all.mjs`
 
 Os scripts foram sanitizados para uso generico e sao validados em `examples/basic-app`.
+
+## Orquestracao
+
+Para rodar a auditoria em um ou mais projetos:
+
+- `npm run audit:all`
+- `node run-audit-all.mjs examples/basic-app`
+- `node run-audit-all.mjs ./app-a ./app-b`
