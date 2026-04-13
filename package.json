@@ -7,7 +7,8 @@
     "check:imports": "node scripts/check-imports.mjs",
     "audit:consistency": "node scripts/audit-consistency.mjs",
     "audit:consistency:strict": "node scripts/audit-consistency.mjs --strict",
+    "audit:all": "node run-audit-all.mjs",
     "test:example": "npm run check:imports --prefix examples/basic-app && npm run audit:consistency --prefix examples/basic-app && npm run audit:consistency:strict --prefix examples/basic-app",
-    "ci": "npm run test:example"
+    "ci": "npm run audit:all"
   }
 }
