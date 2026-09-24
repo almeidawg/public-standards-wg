@@ -51,6 +51,20 @@ Se um arquivo veio do workspace interno:
 
 Os scripts foram sanitizados para uso generico e sao validados em `examples/basic-app`.
 
+### Coordenacao multiagente e deteccao de schema drift
+
+Extraidos e generalizados a partir de ferramentas reais de produção que coordenam multiplas
+sessoes de IA (Claude, ChatGPT/Codex) escrevendo no mesmo repositorio, e que detectam drift
+silencioso de schema entre codigo e banco antes que vire bug em produção:
+
+- [`scripts/agent-coordination/`](scripts/agent-coordination) - `session-claim.mjs` (write-lock
+  compartilhado com TTL) e `agent-handoff.mjs` (ledger append-only de passagem de bastao entre
+  agentes). Zero dependencias, testados com `node --test`.
+- [`scripts/schema-usage-guard/`](scripts/schema-usage-guard) - extrai toda chamada Supabase real
+  do codigo-fonte (via `git show`, nunca checkout local) e cruza contra o schema real via
+  Management API - detecta a classe de bug que falha 100% em silencio (coluna/tabela/RPC/Edge
+  Function que o codigo espera e nao existe mais).
+
 ## Orquestracao
 
 Para rodar a auditoria em um ou mais projetos:
@@ -58,3 +72,8 @@ Para rodar a auditoria em um ou mais projetos:
 - `npm run audit:all`
 - `node run-audit-all.mjs examples/basic-app`
 - `node run-audit-all.mjs ./app-a ./app-b`
+
+Para rodar os testes das ferramentas de coordenacao/schema-guard:
+
+- `npm run test:agent-coordination`
+- `npm run test:schema-usage-guard`

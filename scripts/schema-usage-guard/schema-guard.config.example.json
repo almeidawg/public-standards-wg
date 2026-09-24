@@ -1,0 +1,12 @@
+{
+  "projects": [
+    {
+      "project": "my-app",
+      "repoCwd": "/path/to/my-app",
+      "ref": "origin/main",
+      "subpaths": ["backend", "frontend/src"],
+      "supabaseRef": "your-project-ref-here",
+      "tokenKey": "SUPABASE_ACCESS_TOKEN_MY_APP"
+    }
+  ]
+}
