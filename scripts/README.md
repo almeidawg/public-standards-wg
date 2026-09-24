@@ -9,13 +9,13 @@ Criterios:
 - sem segredos
 - sem dependencia de estrutura privada do workspace
 
-Scripts candidatos a extracao futura:
+Scripts ja extraidos e publicados, seguindo os criterios abaixo:
 
-- `check-imports`
-- `audit-consistency`
-- `run-audit-all`
+- `check-imports` / `audit-consistency` / `run-audit-all` (raiz de `scripts/`)
+- `agent-coordination/` (`session-claim.mjs`, `agent-handoff.mjs`) - ver README da subpasta
+- `schema-usage-guard/` (`schema-usage-guard.mjs`) - ver README da subpasta
 
-Antes de extrair qualquer script:
+Antes de extrair qualquer script novo:
 
 1. remover paths absolutos
 2. parametrizar nomes de projetos
